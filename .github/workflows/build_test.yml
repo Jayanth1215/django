@@ -1,7 +1,7 @@
 name: Build and Test
 
 on:
-  push:
+  push:                 
     branches: [main]
   pull_request:
     branches: [main]
@@ -38,7 +38,7 @@ jobs:
       run: zip -r deploy.zip . -x '*.git*'
 
     - name: Deploy to EB
-      uses: Djangogithubactionsaws-env/beanstalk-deploy@v20
+      uses: einaregilsson/beanstalk-deploy@v20
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
